@@ -1,0 +1,9 @@
+test.c
+testing.c
+./a.out
+.vscode
+.DS_Store
+*.gch
+*.out
+output/
+build/debug
