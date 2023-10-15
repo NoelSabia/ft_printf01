@@ -6,11 +6,16 @@
 /*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 14:29:36 by noel              #+#    #+#             */
-/*   Updated: 2023/10/14 16:59:22 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/15 19:15:27 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void show_pointeradress()
+#include <stdlib.h>
+
+void	show_pointeradress(size_t m)
 {
-    
+	char	*base;
+
+	base = "0123456789abcdef";
+	
 }
