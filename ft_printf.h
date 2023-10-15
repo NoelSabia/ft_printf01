@@ -6,7 +6,7 @@
 /*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 15:59:46 by noel              #+#    #+#             */
-/*   Updated: 2023/10/15 19:09:34 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/15 19:39:46 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 void	putchar(char c);
 void	show_pointeradress(size_t m);
-void	print_decimal();
+void	print_decimal(int);
 void	print_int();
 void	print_unsigned_int();
 void	print_hex_lower();

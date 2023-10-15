@@ -6,7 +6,7 @@
 /*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 15:41:15 by noel              #+#    #+#             */
-/*   Updated: 2023/10/15 19:15:10 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/15 19:45:58 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void check_which(char c, int *i, va_list args)
 	if (c == 'p')
 		show_pointeradress(va_arg(args, size_t));
 	else if (c == 'd')
-		print_decimal();
+		print_decimal(va_arg(args, int));
 	else if (c == 'i')
 		print_int();
 	else if (c == 'u')
