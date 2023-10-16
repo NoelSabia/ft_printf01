@@ -6,7 +6,7 @@
 /*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 15:41:15 by noel              #+#    #+#             */
-/*   Updated: 2023/10/15 19:45:58 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/16 14:05:14 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,10 @@ static void check_which(char c, int *i, va_list args)
 	percent = '%';
 	if (c == 'p')
 		show_pointeradress(va_arg(args, size_t));
-	else if (c == 'd')
-		print_decimal(va_arg(args, int));
-	else if (c == 'i')
-		print_int();
+	else if (c == 'd' || c == 'i')
+		print_decimal_or_int(va_arg(args, int));
 	else if (c == 'u')
-		print_unsigned_int();
+		print_unsigned_int(va_arg(args, unsigned int));
 	else if (c == 'x')
 		print_hex_lower();
 	else if (c == 'X')
@@ -45,7 +43,7 @@ static void check_which(char c, int *i, va_list args)
 	}
 }
 
-int	printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	va_start(args, str);
@@ -62,10 +60,15 @@ int	printf(const char *str, ...)
 		}
 		else
 		{
-			putchar(str[i]);
+			ft_putchar(str[i]);
 			i++;
 		}
 	}
 	va_end(args);
-	return 0; //platzhalter, es sollte was anderes returnen;
+	return 0; //hier sollte returnt werden, wie wiele zeichen kopiert wurden;
+}
+
+int main()
+{
+	ft_printf("hallo: %u \n", -1);
 }
