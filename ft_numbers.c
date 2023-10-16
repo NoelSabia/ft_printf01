@@ -6,7 +6,7 @@
 /*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 14:29:36 by noel              #+#    #+#             */
-/*   Updated: 2023/10/16 17:10:53 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/16 17:51:08 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,12 +104,16 @@ void print_unsigned_int(unsigned int u)
 	free(temp);
 }
 
-void print_hex_lower()
+void print_hex_lower(size_t num)
 {
-	
+	char	*base;
+	char	*
+
+	base = "0123456789abcdef";
+
 }
 
-void print_hex_upper()
+void print_hex_upper(size_t number)
 {
 	
 }

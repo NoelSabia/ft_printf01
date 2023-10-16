@@ -6,7 +6,7 @@
 /*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 15:41:15 by noel              #+#    #+#             */
-/*   Updated: 2023/10/16 17:43:12 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/16 17:50:39 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static void check_which(char c, int *i, va_list args)
 	else if (c == 'u')
 		print_unsigned_int(va_arg(args, unsigned int));
 	else if (c == 'x')
-		print_hex_lower();
+		print_hex_lower(va_arg(args, size_t));
 	else if (c == 'X')
-		print_hex_upper();
+		print_hex_upper(va_arg(args, size_t));
 	else if(c == '%')
 		write (1, "%%", 2);
 	else if (c == 'c')
