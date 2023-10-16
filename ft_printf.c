@@ -6,7 +6,7 @@
 /*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 15:41:15 by noel              #+#    #+#             */
-/*   Updated: 2023/10/16 14:05:14 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/16 17:43:12 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 
 static void check_which(char c, int *i, va_list args)
 {
-	char	percent;
-
-	percent = '%';
 	if (c == 'p')
 		show_pointeradress(va_arg(args, size_t));
 	else if (c == 'd' || c == 'i')
@@ -31,15 +28,15 @@ static void check_which(char c, int *i, va_list args)
 	else if (c == 'X')
 		print_hex_upper();
 	else if(c == '%')
-		write (1, &percent, 1);
+		write (1, "%%", 2);
 	else if (c == 'c')
-		print_one_char();
+		print_one_char(va_arg(args, int));
 	else if (c == 's')
-		print_str();
+		print_str(va_arg(args, char *));
 	else 
 	{
 		(*i)--;
-		write (1, &percent, 1);
+		write (1, "%", 1);
 	}
 }
 
@@ -70,5 +67,5 @@ int	ft_printf(const char *str, ...)
 
 int main()
 {
-	ft_printf("hallo: %u \n", -1);
+	ft_printf("hallo: %s \n", "hi whats upp");
 }

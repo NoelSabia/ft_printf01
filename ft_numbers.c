@@ -6,7 +6,7 @@
 /*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 14:29:36 by noel              #+#    #+#             */
-/*   Updated: 2023/10/16 16:55:15 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/16 17:10:53 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,15 @@ void print_unsigned_int(unsigned int u)
 		write (1, &temp[i], 1);
 	}
 	free(temp);
+}
+
+void print_hex_lower()
+{
+	
+}
+
+void print_hex_upper()
+{
+	
 }
 //bei malloc maybe checken ob malloc funktioniert hat mit if(!temp)...
