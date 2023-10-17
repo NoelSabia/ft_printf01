@@ -6,16 +6,13 @@
 /*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 14:29:36 by noel              #+#    #+#             */
-/*   Updated: 2023/10/16 17:51:08 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/17 11:32:10 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdlib.h>
 #include <unistd.h>
-
-#include <unistd.h>
-#include <stdlib.h>
 
 void	show_pointeradress(size_t ptr)
 {
@@ -107,14 +104,46 @@ void print_unsigned_int(unsigned int u)
 void print_hex_lower(size_t num)
 {
 	char	*base;
-	char	*
+	int		result[19];
+	int		i;
 
+	i = 0;
 	base = "0123456789abcdef";
-
+	if (num == 0)
+	{
+		write (1, "0", 1);
+		return ;
+	}
+	while (num > 0)
+	{
+		result[i] = base[num % 16];
+		num /= 16;
+		i++;
+	}
+	while (i--)
+		write (1, &result[i], 1);
 }
 
-void print_hex_upper(size_t number)
+void print_hex_upper(size_t num)
 {
-	
+	char	*base;
+	int		result[19];
+	int		i;
+
+	i = 0;
+	base = "0123456789ABCDEF";
+	if (num == 0)
+	{
+		write (1, "0", 1);
+		return ;
+	}
+	while (num > 0)
+	{
+		result[i] = base[num % 16];
+		num /= 16;
+		i++;
+	}
+	while (i--)
+		write (1, &result[i], 1);
 }
 //bei malloc maybe checken ob malloc funktioniert hat mit if(!temp)...

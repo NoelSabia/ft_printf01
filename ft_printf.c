@@ -6,7 +6,7 @@
 /*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 15:41:15 by noel              #+#    #+#             */
-/*   Updated: 2023/10/16 17:50:39 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/17 11:39:48 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,4 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return 0; //hier sollte returnt werden, wie wiele zeichen kopiert wurden;
 }
-
-int main()
-{
-	ft_printf("hallo: %s \n", "hi whats upp");
-}
+//was sollte bei %i, %d passieren wenn erste Ziffer 0 (fuer hex oder oct)
