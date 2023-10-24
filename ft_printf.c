@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 15:41:15 by noel              #+#    #+#             */
-/*   Updated: 2023/10/17 11:39:48 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/24 17:02:54 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,28 @@
 #include "ft_printf.h"
 #include <stdlib.h>
 
-static void check_which(char c, int *i, va_list args)
+static void	check_which(char c, int *i, va_list args, int *ptr_len)
 {
 	if (c == 'p')
-		show_pointeradress(va_arg(args, size_t));
+		show_pointeradress(va_arg(args, size_t), ptr_len);
 	else if (c == 'd' || c == 'i')
-		print_decimal_or_int(va_arg(args, int));
+		print_decimal_or_int(va_arg(args, int), ptr_len);
 	else if (c == 'u')
-		print_unsigned_int(va_arg(args, unsigned int));
+		print_unsigned_int(va_arg(args, unsigned int), ptr_len);
 	else if (c == 'x')
-		print_hex_lower(va_arg(args, size_t));
+		print_hex_lower(va_arg(args, size_t), ptr_len);
 	else if (c == 'X')
-		print_hex_upper(va_arg(args, size_t));
-	else if(c == '%')
-		write (1, "%%", 2);
+		print_hex_upper(va_arg(args, size_t), ptr_len);
+	else if (c == '%')
+	{
+		write (1, "%", 1);
+		(*ptr_len)++;
+	}
 	else if (c == 'c')
-		print_one_char(va_arg(args, int));
+		print_one_char(va_arg(args, int), ptr_len);
 	else if (c == 's')
-		print_str(va_arg(args, char *));
-	else 
+		print_str(va_arg(args, char *), ptr_len);
+	else
 	{
 		(*i)--;
 		write (1, "%", 1);
@@ -43,25 +46,35 @@ static void check_which(char c, int *i, va_list args)
 int	ft_printf(const char *str, ...)
 {
 	va_list	args;
-	va_start(args, str);
-	int	i;
+	int		i;
+	int		len;
+	int		*ptr_len;
 
+	va_start (args, str);
+	len = 0;
+	ptr_len = &len;
 	i = 0;
-	while (str[i] != 0)
+	while (str[i] != 0 && len >= 0)
 	{
 		if (str[i] == '%')
 		{
 			i++;
-			check_which(str[i], &i, args);
+			check_which(str[i], &i, args, ptr_len);
 			i++;
 		}
 		else
 		{
-			ft_putchar(str[i]);
+			ft_putchar(str[i], ptr_len);
 			i++;
 		}
 	}
 	va_end(args);
-	return 0; //hier sollte returnt werden, wie wiele zeichen kopiert wurden;
+	return (len);
 }
-//was sollte bei %i, %d passieren wenn erste Ziffer 0 (fuer hex oder oct)
+
+// #include <stdio.h>
+// int main()
+// {
+// 	ft_printf("%i", 123);
+// 	printf("%i", ft_printf("%i", 123));
+// }

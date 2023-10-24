@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hex_nums.c                                         :+:      :+:    :+:   */
+/*   ft_hex_nums.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 09:15:57 by noel              #+#    #+#             */
-/*   Updated: 2023/10/22 09:16:20 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/24 14:27:59 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "ft_printf.h"
 
-void print_hex_lower(size_t num)
+int	print_hex_lower(size_t num, int *ptr_len)
 {
 	char	*base;
 	int		result[19];
@@ -23,7 +24,7 @@ void print_hex_lower(size_t num)
 	if (num == 0)
 	{
 		write (1, "0", 1);
-		return ;
+		return ((*ptr_len)++);
 	}
 	while (num > 0)
 	{
@@ -32,10 +33,14 @@ void print_hex_lower(size_t num)
 		i++;
 	}
 	while (i--)
+	{
 		write (1, &result[i], 1);
+		(*ptr_len)++;
+	}
+	return (*ptr_len);
 }
 
-void print_hex_upper(size_t num)
+int	print_hex_upper(size_t num, int *ptr_len)
 {
 	char	*base;
 	int		result[19];
@@ -46,7 +51,7 @@ void print_hex_upper(size_t num)
 	if (num == 0)
 	{
 		write (1, "0", 1);
-		return ;
+		return ((*ptr_len)++);
 	}
 	while (num > 0)
 	{
@@ -55,5 +60,9 @@ void print_hex_upper(size_t num)
 		i++;
 	}
 	while (i--)
+	{
 		write (1, &result[i], 1);
+		(*ptr_len)++;
+	}
+	return (*ptr_len);
 }
