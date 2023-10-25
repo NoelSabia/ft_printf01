@@ -6,14 +6,14 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 09:15:57 by noel              #+#    #+#             */
-/*   Updated: 2023/10/24 14:27:59 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/25 13:06:26 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "ft_printf.h"
 
-int	print_hex_lower(size_t num, int *ptr_len)
+int	print_hex_lower(unsigned int num, int *ptr_len)
 {
 	char	*base;
 	int		result[19];
@@ -40,7 +40,7 @@ int	print_hex_lower(size_t num, int *ptr_len)
 	return (*ptr_len);
 }
 
-int	print_hex_upper(size_t num, int *ptr_len)
+int	print_hex_upper(unsigned int num, int *ptr_len)
 {
 	char	*base;
 	int		result[19];

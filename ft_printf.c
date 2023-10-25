@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 15:41:15 by noel              #+#    #+#             */
-/*   Updated: 2023/10/24 17:02:54 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/25 13:04:21 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static void	check_which(char c, int *i, va_list args, int *ptr_len)
 	else if (c == 'u')
 		print_unsigned_int(va_arg(args, unsigned int), ptr_len);
 	else if (c == 'x')
-		print_hex_lower(va_arg(args, size_t), ptr_len);
+		print_hex_lower(va_arg(args, unsigned int), ptr_len);
 	else if (c == 'X')
-		print_hex_upper(va_arg(args, size_t), ptr_len);
+		print_hex_upper(va_arg(args, unsigned int), ptr_len);
 	else if (c == '%')
 	{
 		write (1, "%", 1);
@@ -75,6 +75,6 @@ int	ft_printf(const char *str, ...)
 // #include <stdio.h>
 // int main()
 // {
-// 	ft_printf("%i", 123);
-// 	printf("%i", ft_printf("%i", 123));
+// 	ft_printf("%p\n", "");
+// 	printf("%p\n", "");
 // }

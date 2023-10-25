@@ -2,7 +2,7 @@ NAME = libftprintf.a
 
 SOURCES = ft_printf.c\
 ft_words.c\
-ft_numbers.c\
+ft_nums.c\
 ft_hex_nums.c
 
 OBJ = ${SOURCES:.c=.o}

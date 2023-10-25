@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 15:41:18 by noel              #+#    #+#             */
-/*   Updated: 2023/10/24 17:02:14 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/25 12:46:02 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,11 @@ void	print_str(char *str, int *ptr_len)
 	int	i;
 
 	i = 0;
-	if (str == NULL)
+	if (str == 0)
 	{
-		write (1, "(null)", 7);
+		write (1, "(null)", 6);
 		(*ptr_len) += 6;
+		return ;
 	}
 	while (str[i] != 0)
 	{

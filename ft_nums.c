@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_numbers.c                                       :+:      :+:    :+:   */
+/*   ft_nums.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 14:29:36 by noel              #+#    #+#             */
-/*   Updated: 2023/10/24 18:29:52 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/25 14:48:31 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-int	show_pointeradress(size_t ptr, int *ptr_len)
+void	show_pointeradress(size_t ptr, int *ptr_len)
 {
 	char	*base;
 	char	*placeholder;
@@ -23,12 +23,13 @@ int	show_pointeradress(size_t ptr, int *ptr_len)
 	i = 0;
 	base = "0123456789abcdef";
 	write (1, "0x", 2);
+	(*ptr_len) += 2;
 	if (ptr == 0)
 	{
 		write (1, "0", 1);
-		return ((*ptr_len)++);
+		(*ptr_len)++;
 	}
-	placeholder = (char *)malloc(sizeof(ptr));
+	placeholder = (char *)malloc(16);
 	while (ptr != 0)
 	{
 		placeholder[i++] = base[ptr % 16];
@@ -40,15 +41,14 @@ int	show_pointeradress(size_t ptr, int *ptr_len)
 		(*ptr_len)++;
 	}
 	free(placeholder);
-	return (*ptr_len);
 }
 
 static int	print_dec_or_int_helper(int n, int *ptr_len)
 {
 	if (n == -2147483648)
 	{
-		write (1, "-2147483648", 12);
-		return ((*ptr_len) + 12);
+		write (1, "-2147483648", 11);
+		return ((*ptr_len) += 11);
 	}
 	if (n == 0)
 	{
