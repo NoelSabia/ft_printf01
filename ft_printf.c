@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 15:41:15 by noel              #+#    #+#             */
-/*   Updated: 2023/10/25 13:04:21 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/25 15:15:47 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ static void	check_which(char c, int *i, va_list args, int *ptr_len)
 		print_hex_upper(va_arg(args, unsigned int), ptr_len);
 	else if (c == '%')
 	{
-		write (1, "%", 1);
 		(*ptr_len)++;
+		if (write (1, "%", 1) == -1)
+			(*ptr_len) = -1;
 	}
 	else if (c == 'c')
 		print_one_char(va_arg(args, int), ptr_len);
@@ -63,10 +64,9 @@ int	ft_printf(const char *str, ...)
 			i++;
 		}
 		else
-		{
-			ft_putchar(str[i], ptr_len);
-			i++;
-		}
+			ft_putchar(str[i++], ptr_len);
+		if (len == -1)
+			return (-1);
 	}
 	va_end(args);
 	return (len);
