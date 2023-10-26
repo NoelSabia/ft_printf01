@@ -2,8 +2,10 @@ NAME = libftprintf.a
 
 SOURCES = ft_printf.c\
 ft_words.c\
-ft_nums.c\
-ft_hex_nums.c
+ft_unsigned_int_nums.c\
+ft_decimal_or_int_nums.c\
+ft_hex_nums.c\
+ft_pointer_hex.c
 
 OBJ = ${SOURCES:.c=.o}
 
